@@ -11,6 +11,7 @@ class m140622_111540_create_image_table extends \yii\db\Migration
             'isMain' => $this->boolean(),
             'modelName' => $this->string(150)->notNull(),
             'urlAlias' => $this->string(400)->notNull(),
+            'sort' => $this->integer(3),
         ]);
 
     }
