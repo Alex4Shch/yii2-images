@@ -10,6 +10,7 @@
  * @property integer $isMain
  * @property string $modelName
  * @property string $urlAlias
+ * @property integer $sort
  */
 
 namespace rico\yii2images\models;
