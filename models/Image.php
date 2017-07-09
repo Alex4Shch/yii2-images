@@ -286,7 +286,11 @@ class Image extends \yii\db\ActiveRecord
             [['itemId', 'isMain'], 'integer'],
             [['name'], 'string', 'max' => 80],
             [['filePath', 'urlAlias'], 'string', 'max' => 400],
-            [['modelName'], 'string', 'max' => 150]
+            [['modelName'], 'string', 'max' => 150],
+            [['sort'], 'default', 'value' => function($model){
+                       $count=Image::find()->andWhere(['modelName'=>$model->modelName, 'itemId'=>$model->itemId])->count();
+                       return ($count>0)? $count++:0;
+            }],
         ];
     }
 
@@ -302,6 +306,7 @@ class Image extends \yii\db\ActiveRecord
             'isMain' => 'Is Main',
             'modelName' => 'Model Name',
             'urlAlias' => 'Url Alias',
+            'sort' => 'sort'
         ];
     }
 }
