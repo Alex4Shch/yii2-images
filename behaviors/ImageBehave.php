@@ -180,7 +180,7 @@ class ImageBehave extends Behavior
             $imageQuery = $class::find();
         }
         $imageQuery->where($finder);
-        $imageQuery->orderBy(['isMain' => SORT_DESC, 'id' => SORT_ASC]);
+        $imageQuery->orderBy(['sort']);
 
         $imageRecords = $imageQuery->all();
         if(!$imageRecords && $this->getModule()->placeHolderPath){
